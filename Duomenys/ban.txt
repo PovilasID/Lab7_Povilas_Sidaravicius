@@ -1,0 +1,16 @@
+KTU Statybos rumai, 54.90596, 23.956235, 5, akadem
+KTU Statybos rumai, 54.90596, 23.956235, 5, akadem
+KTU SC, 54.904923, 23.957029, 8, akadem
+KTU Elektronikos rumai, 54.903964, 23.958064, 101, akadem
+KTU Dizaino fukultetas, 54.901068, 23.960451, 60, akadem
+KTU centriniai rūmai, 54.898986, 23.91284, 70, akadem
+PC Akropolis, 54.891582, 23.919145, 6, pc
+Žalgerio arena, 54.890308, 23.914456, 8, arena
+Kauno sporto halė, 54.896111, 23.935833, 7, arena
+PC Savas, 54.92258, 23.963379, 6, pc
+PC Dainava, 54.917736, 23.96677, 3, pc
+PC Dainava, 54.917736, 23.96677, 4, pc
+Žalgerio arena, 54.890308, 23.914456, 9, arena
+KTU Elektronikos rumai, 54.903964, 23.958064, 12, akadem
+KTU Dizaino fukultetas, 54.901068, 23.960451, 13, akadem
+KTU centriniai rūmai, 54.898986, 23.91284, 17, akadem
