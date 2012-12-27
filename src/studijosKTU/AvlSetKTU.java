@@ -26,13 +26,8 @@ public class AvlSetKTU<Data extends Comparable<Data>> extends BstSetKTU<Data>
    }
     
     int heightOfTree(AVLNode<Data> node) {
-        if (node == null) {
-            return 0;
-        } else {
-            return 1
-                    + Math.max(heightOfTree(node.left),
-                    heightOfTree(node.right));
-        }
+        AVLNode<Data> root = (AVLNode<Data>) getRoot();
+        return root.height;
     }
 
     /**
