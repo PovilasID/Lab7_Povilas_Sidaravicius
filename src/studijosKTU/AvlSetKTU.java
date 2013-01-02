@@ -103,32 +103,65 @@ public class AvlSetKTU<Data extends Comparable<Data>> extends BstSetKTU<Data>
     }
 
     private AVLNode<Data> removeRecursive(Data data, AVLNode<Data> n) {
+        
         if (n == null) {
             returned = false;
             return n;
-        }
-        int cmp = (c == null) ? data.compareTo(n.data) : c.compare(data, n.data);
-        if (cmp < 0) {
+        } else if (data.compareTo(n.data) < 0){
             n.left = removeRecursive(data, n.getLeft());
-        } else if (cmp > 0) {
-            n.right = removeRecursive(data, n.getRight());
-        } else if (n.left == null) {
-            n = n.getRight();
-        } else if (n.right == null) {
-            n = n.getLeft();
-        } else if (height(n.getLeft()) > height(n.getRight())) {
-            n = rightRotation(n);
-            n.right = removeRecursive(data, n.getRight());
-        } else {
-            n = leftRotation(n);
-            n.left = removeRecursive(data, n.getLeft());
-        }
 
-        if (n != null) {
-            n.height = height(n.getLeft()) + height(n.getRight());
+        if (height(n.getRight()) - height(n.getLeft()) == 2) {
+                if (height(n.getRight().getRight())>= height(n.getRight().getLeft())) {
+                    n = rightRotation(n);
+                } else {
+                    n = doubleRightRotation(n);
+                }
+            }
+        
+        n.height = heightOfTree(n);
+        } else if (data.compareTo(n.data) > 0){
+            n.right = removeRecursive(data, n.getRight());
+            
+            if (height(n.getLeft()) - height(n.getRight()) == 2) {
+                if (height(n.getLeft().getLeft()) >= height(n.getLeft().getRight())) {
+                    n = leftRotation(n);
+                } else {
+                    n = doubleLeftRotation(n);
+                }
+            }
+            n.height = heightOfTree(n);
+        } else if (n.right == null){
+            AVLNode<Data> tmpReturn = n.getLeft();
+            n = null;
+            return tmpReturn;
+        } else if (n.left == null){
+            AVLNode<Data> tmpReturn = n.getRight();
+            n = null;
+            return tmpReturn;
+        } else {
+            AVLNode<Data> tmpReturn = findMax(n.getLeft());
+            removeRecursive(tmpReturn.data, n); 
+            n.data = tmpReturn.data;
         }
         return n;
+        
 
+    }
+    /**
+     * Internal method to find the largest item in a subtree.
+     *
+     * @param t the node that roots the tree.
+     * @return node containing the largest item.
+     */
+    private AVLNode<Data> findMax(AVLNode<Data> t) {
+        if (t == null) {
+            return t;
+        }
+
+        while (t.right != null) {
+            t = t.getRight();
+        }
+        return t;
     }
 
 //==============================================================================

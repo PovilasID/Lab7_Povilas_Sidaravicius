@@ -388,7 +388,8 @@ public class Lab7Panel extends JPanel implements ActionListener {
         if (placeSet.isEmpty()) {
             KsSwing.ounerr(taOutput, rb.getStringArray("msgs")[10]);
         } else {
-            int nr = new Random().nextInt(placeSet.size());
+            int limit = placeSet.size();
+            int nr = new Random().nextInt(limit);
             Place place = (Place) placeSet.toArray()[nr];
             placeSet.remove(place);
             KsSwing.setFormatStartOfLine(false);
